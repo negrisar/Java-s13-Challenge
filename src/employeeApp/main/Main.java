@@ -1,5 +1,10 @@
 package employeeApp;
 
+import employeeApp.model.Company;
+import employeeApp.model.Employee;
+import employeeApp.model.Healthplan;
+import employeeApp.model.Plan;
+
 /**
  * Uygulamanın amacı Java'da nesne tabanlı programlamanın temellerinin oluşturulmasıdır.
  *
@@ -12,6 +17,22 @@ public class Main
      */
     private static void workWithData ()
     {
+        Healthplan plan1 = new Healthplan(1, "A Sigorta", Plan.ECO);
+        Healthplan plan2 = new Healthplan(2, "B Sigorta", Plan.PRO);
+
+        String[] healthplans = new String[3];
+        healthplans[0] = plan1.getName();
+        healthplans[1] = plan2.getName();
+
+        Employee developer = new Employee(1,"Nergis Armağan", "armaganergis@gmail.com", "saçma",healthplans);
+        developer.addHealthplan(0, "A Sigorta");
+        System.out.println(developer);
+
+        String[] developerNames = new String[5];
+        developerNames[0] = developer.getFullname();
+        Company company = new Company(1, "Workintech", 1500000000, developerNames );
+        System.out.println(company);
+
 
     }
 
